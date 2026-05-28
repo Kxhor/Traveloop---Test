@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;family=Inter:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(31, 31, 39, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .aero-glow {
+            box-shadow: 0 0 20px 0 rgba(192, 193, 255, 0.15);
+        }
+        .itinerary-line {
+            background-image: linear-gradient(to bottom, transparent 50%, #4fdbc8 50%);
+            background-size: 2px 8px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#e4e1ed",
+                      "primary": "#c0c1ff",
+                      "surface-container-high": "#292932",
+                      "surface": "#13131b",
+                      "on-secondary-fixed": "#2a1700",
+                      "secondary-fixed-dim": "#ffb95f",
+                      "primary-fixed-dim": "#c0c1ff",
+                      "surface-container": "#1f1f27",
+                      "outline-variant": "#464554",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-container": "#00302a",
+                      "surface-variant": "#34343d",
+                      "inverse-surface": "#e4e1ed",
+                      "on-tertiary-fixed-variant": "#005048",
+                      "error-container": "#93000a",
+                      "primary-container": "#8083ff",
+                      "inverse-primary": "#494bd6",
+                      "on-surface-variant": "#c7c4d7",
+                      "surface-bright": "#393841",
+                      "surface-container-low": "#1b1b23",
+                      "on-primary": "#1000a9",
+                      "tertiary-fixed-dim": "#4fdbc8",
+                      "tertiary": "#4fdbc8",
+                      "surface-container-highest": "#34343d",
+                      "tertiary-fixed": "#71f8e4",
+                      "on-error": "#690005",
+                      "primary-fixed": "#e1e0ff",
+                      "on-primary-container": "#0d0096",
+                      "surface-dim": "#13131b",
+                      "on-primary-fixed-variant": "#2f2ebe",
+                      "tertiary-container": "#00a392",
+                      "on-secondary": "#472a00",
+                      "surface-container-lowest": "#0d0d15",
+                      "on-tertiary-fixed": "#00201c",
+                      "secondary-container": "#ee9800",
+                      "on-tertiary": "#003731",
+                      "error": "#ffb4ab",
+                      "on-primary-fixed": "#07006c",
+                      "surface-tint": "#c0c1ff",
+                      "on-surface": "#e4e1ed",
+                      "on-secondary-container": "#5b3800",
+                      "secondary-fixed": "#ffddb8",
+                      "background": "#13131b",
+                      "outline": "#908fa0",
+                      "secondary": "#ffb95f",
+                      "inverse-on-surface": "#303038",
+                      "on-secondary-fixed-variant": "#653e00"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "section-gap": "48px",
+                      "unit": "8px",
+                      "container-margin": "24px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Outfit"],
+                      "headline-md": ["Outfit"],
+                      "body-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "display-lg": ["Outfit"],
+                      "headline-lg-mobile": ["Outfit"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen selection:bg-primary/30">
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+<div class="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] bg-primary/10 blur-[120px] rounded-full"></div>
+<div class="absolute -bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-tertiary/5 blur-[100px] rounded-full"></div>
+</div>
+<div class="relative z-10 flex items-center justify-center min-h-screen px-4" id="onboarding-flow">
+<div class="glass-card w-full max-w-md p-8 rounded-[24px] aero-glow">
+<div class="flex flex-col items-center mb-10">
+<div class="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 border border-white/10">
+<span class="material-symbols-outlined text-primary text-4xl">flight_takeoff</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-white mb-2">Welcome to ZUno</h1>
+<p class="text-on-surface-variant text-center">Elevate your travel logistics with precision.</p>
+</div>
+<form class="space-y-6">
+<div>
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-2 block">Email Address</label>
+<input class="w-full bg-transparent border-b border-outline-variant py-3 px-1 text-on-surface focus:border-primary focus:outline-none transition-all placeholder:text-outline-variant" placeholder="explorer@zuno.travel" type="email"/>
+</div>
+<div>
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-2 block">Password</label>
+<input class="w-full bg-transparent border-b border-outline-variant py-3 px-1 text-on-surface focus:border-primary focus:outline-none transition-all placeholder:text-outline-variant" placeholder="••••••••" type="password"/>
+</div>
+<button class="w-full bg-primary text-on-primary font-bold py-4 rounded-xl aero-glow hover:brightness-110 active:scale-[0.98] transition-all" type="submit">
+                    Initialize Journey
+                </button>
+</form>
+<div class="mt-8 flex items-center justify-center space-x-4">
+<div class="h-px bg-white/10 flex-grow"></div>
+<span class="text-label-sm text-on-surface-variant uppercase">Secure Auth</span>
+<div class="h-px bg-white/10 flex-grow"></div>
+</div>
+<div class="mt-8 flex justify-center space-x-2">
+<p class="text-on-surface-variant">New explorer?</p>
+<a class="text-primary font-bold hover:underline" href="#">Create Account</a>
+</div>
+</div>
+</div>
+<div class="relative z-10 hidden lg:flex" id="profile-dashboard">
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container/60 backdrop-blur-lg border-r border-white/10 flex flex-col p-6">
+<div class="flex items-center space-x-3 mb-10">
+<span class="material-symbols-outlined text-primary text-3xl font-bold">travel_explore</span>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tighter">ZUno</span>
+</div>
+<nav class="flex-grow space-y-2">
+<a class="flex items-center space-x-4 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center space-x-4 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-body-md text-body-md">Trips</span>
+</a>
+<a class="flex items-center space-x-4 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md text-body-md">Expenses</span>
+</a>
+<a class="flex items-center space-x-4 px-4 py-3 bg-primary-container/20 text-primary border-r-4 border-primary rounded-r-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-body-md text-body-md">Profile</span>
+</a>
+</nav>
+<div class="mt-auto space-y-2">
+<a class="flex items-center space-x-4 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md text-body-md">Support</span>
+</a>
+<a class="flex items-center space-x-4 px-4 py-3 text-error/80 hover:bg-error/10 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md text-body-md">Sign Out</span>
+</a>
+</div>
+</aside>
+<main class="ml-64 flex-grow p-10 max-w-7xl">
+<header class="flex justify-between items-center mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-white">Explorer Profile</h2>
+<p class="text-on-surface-variant">Global Citizen ID: #ZUNO-8829</p>
+</div>
+<div class="flex items-center space-x-4">
+<button class="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-on-surface">notifications</span>
+</button>
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/30">
+<img alt="User profile" data-alt="A sophisticated close-up portrait of a professional traveler with a soft, cinematic lighting setup. The background is a blurred luxury airport lounge with deep navy and teal accents. The individual has a confident yet serene expression, perfectly reflecting a high-end, modern travel lifestyle. The overall image has a premium, crisp digital feel with a subtle cool color temperature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwKGmTmxhkN3ycV_R_B9_PeZx_36UYxG22xHSQr7nn1gUOlObqVDHWrJ5rwR4wDfGh1EudgXVGjgEqsrbh6qzv9s-pLGk8eFw_AfiL8w4UnbMoq0ZEJ0yTkhhaqCXdY7ykS9N7p4-g8iljIwrYXUEmnZMb0AhuzSXtv9Mebrpqlx9COAgB0Dr_CAx2E6vbnCOY2CY92m5ACcwHCQinHLo0zlgncwBwxpSVh_OoFgsN3gNrhuFE_PHbFPKCoxSIMl18YKKXaW364bY"/>
+</div>
+</div>
+</header>
+<div class="grid grid-cols-12 gap-6">
+<!-- Profile Card -->
+<div class="col-span-12 lg:col-span-4 glass-card p-8 rounded-[24px]">
+<div class="flex flex-col items-center text-center">
+<div class="w-24 h-24 rounded-3xl overflow-hidden mb-6 border-4 border-white/5 aero-glow">
+<img alt="Avatar" data-alt="A premium close-up headshot of a stylish traveler in a modern urban setting. The lighting is high-end and soft, highlighting the clean facial features and a professional appearance. The background consists of soft-focus architectural glass and steel, echoing the aero-minimalist aesthetic of the brand. The color palette is composed of muted grays, deep blues, and subtle silver highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2RwYJmwkiitcA7DGFR-nTV8KmiQ-hpb97Q4GTh2K-ASaE3dCj-cisQWrydgd8vpQVGo2N7wYblNz5zAHG0dYcvCg-iXZZimhsN8ndwBl0zJrtKNwzxAvqxErGHDWVkY0ekuwyjYoS19Eg9W2Du-kkhNibjTUblAznn2ecAcUpnI81QCybsZlWg1adhfx9nZ2paYkACYor-P41Fr2zw1ycToo1PRjX7RZXutOid7iyawoNNm_Iww6vYFXBPvW0C-ZwOuNKzE2zfEo"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-white">Julian Sterling</h3>
+<p class="text-on-surface-variant mb-6">Platinum Explorer • Joined Dec 2023</p>
+<div class="flex space-x-2 w-full">
+<button class="flex-grow bg-primary text-on-primary font-bold py-3 rounded-xl transition-all hover:brightness-110">Edit Profile</button>
+<button class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-primary">share</span>
+</button>
+</div>
+</div>
+<div class="mt-10 pt-10 border-t border-white/10 space-y-6">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant">Default Currency</span>
+<div class="flex items-center space-x-2 text-primary font-bold">
+<span>USD ($)</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant">Time Zone</span>
+<span class="text-on-surface">GMT -5 (EST)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant">Travel Preference</span>
+<div class="flex items-center space-x-1 px-3 py-1 bg-tertiary/10 text-tertiary rounded-full border border-tertiary/20">
+<span class="material-symbols-outlined text-[14px]">eco</span>
+<span class="font-label-sm text-label-sm">Sustainable</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Bento Grid -->
+<div class="col-span-12 lg:col-span-8 grid grid-cols-2 gap-6">
+<div class="glass-card p-6 rounded-[24px] flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary mb-4">public</span>
+<div>
+<p class="text-display-lg font-display-lg text-white">12</p>
+<p class="text-on-surface-variant uppercase tracking-widest text-label-sm">Countries Visited</p>
+</div>
+</div>
+<div class="glass-card p-6 rounded-[24px] flex flex-col justify-between">
+<span class="material-symbols-outlined text-tertiary mb-4">flight</span>
+<div>
+<p class="text-display-lg font-display-lg text-white">48</p>
+<p class="text-on-surface-variant uppercase tracking-widest text-label-sm">Flights Taken</p>
+</div>
+</div>
+<div class="col-span-2 glass-card p-8 rounded-[24px] overflow-hidden relative">
+<div class="relative z-10">
+<h4 class="font-headline-md text-headline-md text-white mb-6">Recent Activity</h4>
+<div class="space-y-6">
+<div class="flex items-start space-x-4">
+<div class="mt-1 w-2 h-2 rounded-full bg-primary aero-glow"></div>
+<div class="flex-grow">
+<p class="text-on-surface font-semibold">Tokyo Expedition Finalized</p>
+<p class="text-on-surface-variant text-sm">Completed logistics for 7 days in Shibuya</p>
+</div>
+<span class="text-on-surface-variant text-sm">2d ago</span>
+</div>
+<div class="flex items-start space-x-4">
+<div class="mt-1 w-2 h-2 rounded-full bg-tertiary aero-glow"></div>
+<div class="flex-grow">
+<p class="text-on-surface font-semibold">Earned 'Global Nomad' Badge</p>
+<p class="text-on-surface-variant text-sm">Unlocked for visiting 3 continents in 1 year</p>
+</div>
+<span class="text-on-surface-variant text-sm">1w ago</span>
+</div>
+</div>
+</div>
+<div class="absolute -right-10 -bottom-10 opacity-10">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">explore</span>
+</div>
+</div>
+</div>
+<!-- Preference Cards -->
+<div class="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6 mt-2">
+<div class="glass-card p-6 rounded-[24px] border-l-4 border-primary">
+<h5 class="text-primary font-bold mb-2">Flight Preference</h5>
+<p class="text-on-surface">Window Seat, Business Class</p>
+</div>
+<div class="glass-card p-6 rounded-[24px] border-l-4 border-tertiary">
+<h5 class="text-tertiary font-bold mb-2">Hotel Style</h5>
+<p class="text-on-surface">Boutique &amp; Modern Luxury</p>
+</div>
+<div class="glass-card p-6 rounded-[24px] border-l-4 border-secondary">
+<h5 class="text-secondary font-bold mb-2">Dining Choice</h5>
+<p class="text-on-surface">Local Experiences &amp; High Tea</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Bottom Nav -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pt-3 pb-6 bg-surface-container-highest/80 backdrop-blur-2xl border-t border-white/10 rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.12)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm text-label-sm mt-1">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Budget</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary scale-110 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm mt-1">Account</span>
+</a>
+</nav>
+<!-- FAB for Dashboard (only visible when in profile) -->
+<button class="fixed bottom-24 right-8 lg:bottom-12 lg:right-12 w-16 h-16 bg-primary text-on-primary rounded-full aero-glow flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

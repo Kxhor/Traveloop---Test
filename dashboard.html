@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZUno Master Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffb785",
+                        "secondary-container": "#00d9c0",
+                        "surface-container": "#1f1f28",
+                        "tertiary": "#ffb785",
+                        "surface-container-lowest": "#0e0d16",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#005046",
+                        "tertiary-container": "#db761f",
+                        "background": "#13121b",
+                        "outline-variant": "#464555",
+                        "on-primary-fixed-variant": "#3622ca",
+                        "surface-container-high": "#2a2933",
+                        "surface-container-highest": "#35343e",
+                        "on-surface": "#e4e1ee",
+                        "on-secondary": "#003730",
+                        "surface-dim": "#13121b",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#c7c4d8",
+                        "primary-fixed": "#e3dfff",
+                        "on-primary": "#2000a4",
+                        "secondary": "#47f5db",
+                        "secondary-fixed": "#4ffbe1",
+                        "inverse-on-surface": "#302f39",
+                        "outline": "#918fa1",
+                        "surface-container-low": "#1b1b24",
+                        "on-secondary-fixed": "#00201b",
+                        "surface-tint": "#c4c0ff",
+                        "on-background": "#e4e1ee",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#35343e",
+                        "primary-container": "#8781ff",
+                        "on-error": "#690005",
+                        "surface": "#13121b",
+                        "secondary-fixed-dim": "#1adec5",
+                        "tertiary-fixed": "#ffdcc6",
+                        "inverse-primary": "#4f44e2",
+                        "on-tertiary": "#502500",
+                        "on-tertiary-fixed": "#301400",
+                        "on-secondary-container": "#00594e",
+                        "on-tertiary-container": "#461f00",
+                        "primary": "#c4c0ff",
+                        "inverse-surface": "#e4e1ee",
+                        "on-primary-fixed": "#100069",
+                        "on-primary-container": "#1b0091",
+                        "surface-bright": "#393842",
+                        "primary-fixed-dim": "#c4c0ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "card": "20px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin": "32px",
+                        "2xl": "64px",
+                        "sm": "8px",
+                        "unit": "4px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0A0A12;
+            color: #e4e1ee;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        .glass-panel:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #6C63FF 0%, #4f44e2 100%);
+        }
+        .primary-gradient:hover {
+            box-shadow: 0 0 20px rgba(108, 99, 255, 0.4);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen overflow-x-hidden">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 w-[260px] h-screen border-r border-white/10 bg-white/5 backdrop-blur-[20px] dark:bg-white/5 flex flex-col py-lg px-md z-50">
+<div class="mb-xl px-sm flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg primary-gradient flex items-center justify-center">
+<span class="material-symbols-outlined text-white">flight_takeoff</span>
+</div>
+<div>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">ZUno</h1>
+<p class="text-label-sm text-on-surface-variant/60">Premium Travel</p>
+</div>
+</div>
+<nav class="flex-1 space-y-sm">
+<a class="flex items-center gap-md px-md py-sm text-secondary bg-white/10 rounded-lg transition-all duration-300 scale-105" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-white/10 hover:text-secondary transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-body-md">My Trips</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-white/10 hover:text-secondary transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-body-md">Expenses</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-white/10 hover:text-secondary transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-body-md">Profile</span>
+</a>
+</nav>
+<button class="mt-auto primary-gradient text-white font-bold py-md px-lg rounded-xl flex items-center justify-center gap-sm transition-all duration-300 active:scale-95">
+<span class="material-symbols-outlined">add</span>
+            New Trip
+        </button>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-[260px] flex flex-col min-h-screen">
+<!-- TopAppBar (Shared Component) -->
+<header class="w-full h-20 flex justify-between items-center px-margin py-md bg-transparent sticky top-0 z-40 backdrop-blur-md">
+<div class="flex flex-col">
+<h2 class="text-headline-md font-headline-md font-bold text-on-surface">Welcome back, Kishor</h2>
+<p class="text-label-sm text-on-surface-variant">Your next adventure starts in 12 days.</p>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="bg-white/5 border border-white/10 rounded-full py-2 pl-10 pr-4 focus:ring-2 focus:ring-secondary/50 focus:border-secondary outline-none transition-all w-64" placeholder="Search trips..." type="text"/>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-secondary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="Kishor Avatar" class="w-10 h-10 rounded-full border-2 border-secondary/50 p-0.5" data-alt="A professional close-up portrait of a modern man with a friendly expression, styled for a premium tech interface. He is set against a soft, out-of-focus urban background with cool blue and purple ambient lighting. The visual style is crisp and high-end, maintaining the sophisticated glassmorphism theme of the platform through subtle lighting reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9gUPGUhiNtW2ul4SNHcaZafJ9mHRLuNlpJoUaC-l1qXE9QymxZ46uZkEMyECc2EMUxsFpXsO1ExQ-V7LQNO6R2tUJfwwG6N6P3edCL77tYhzMAC_Vd5Qujkqg4oy3Q4mpoL_Sx_jXPcntac4h0eHw1Sd2xd7Su5Te_LFb83MrDjFMOEa3ptbKeeX-F8gag2xN_RSEEKGMJhpHFHBUswCcxMCGst_e-Ftd_tGeunfr36HyZw0LptTUCnyOFn04LlYDXGRbiWpqPGM"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="px-margin py-lg space-y-xl">
+<!-- Stats Row -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-lg">
+<div class="glass-panel p-lg flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary bg-secondary/10 p-2 rounded-lg">flight</span>
+<span class="text-secondary text-label-sm font-bold">↑ 8%</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Total Trips</p>
+<h3 class="text-headline-md font-bold text-on-surface">12</h3>
+</div>
+</div>
+<div class="glass-panel p-lg flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-tertiary bg-tertiary/10 p-2 rounded-lg">public</span>
+<span class="text-secondary text-label-sm font-bold">↑ 2%</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Countries Visited</p>
+<h3 class="text-headline-md font-bold text-on-surface">8</h3>
+</div>
+</div>
+<div class="glass-panel p-lg flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">account_balance_wallet</span>
+<span class="text-secondary text-label-sm font-bold">↑ 15%</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Total Budget</p>
+<h3 class="text-headline-md font-bold text-on-surface">$24,500</h3>
+</div>
+</div>
+<div class="glass-panel p-lg flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-on-surface bg-white/10 p-2 rounded-lg">event_upcoming</span>
+<span class="text-on-surface-variant text-label-sm font-bold">Next</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Upcoming Trips</p>
+<h3 class="text-headline-md font-bold text-on-surface">3</h3>
+</div>
+</div>
+</section>
+<!-- Main Grid: Trips and Analytics -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+<!-- My Trips Section -->
+<section class="lg:col-span-2 space-y-lg">
+<div class="flex justify-between items-center">
+<h3 class="text-headline-md font-bold">My Trips</h3>
+<button class="text-secondary font-bold text-label-sm hover:underline">View All</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Amalfi Trip -->
+<div class="glass-panel overflow-hidden group">
+<div class="h-32 relative">
+<img alt="Amalfi Coast" class="w-full h-full object-cover" data-alt="A breathtaking view of the Amalfi Coast at golden hour, featuring colorful pastel buildings perched on steep cliffs overlooking a shimmering deep blue Mediterranean sea. The lighting is warm and ethereal, with soft oranges and pinks blending into the twilight sky. The composition is cinematic, reflecting the premium and luxurious travel vibe of the ZUno brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_FRC8TnGI4wPtE89o8ZxDbN-OFk-iH6agFTCLS7hs-FrOGUxZIURyjTrZK1-lyLojA6jofro9iMICnB08ov7nrIwmGp4GE-xu7y7_PX09M1L9S7KjNXhVhLZkQ0__pl8s3XVCGPKpnY3QkBtm_6LXIbGTrYCrI09AE3QxxtpuWuHg3VZVZ4_pfETfNPvOAZ4kxPa-Qf3Em7k6NO9oBZxPr9tXHDb_r1-vG-VnWrOrBSTQ-YP-Od1XI7wSd0VVne5unyJbAqyRHP4"/>
+<div class="absolute top-2 right-2 px-3 py-1 bg-secondary text-on-secondary text-[10px] font-bold rounded-full uppercase">Active</div>
+</div>
+<div class="p-lg space-y-md">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-body-lg">Summer in Amalfi</h4>
+<span class="text-label-sm text-on-surface-variant">June 12-24</span>
+</div>
+<div class="flex gap-sm">
+<span class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] text-primary">Italy</span>
+<span class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] text-primary">Beach</span>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between text-label-sm">
+<span class="text-on-surface-variant">Budget: $3,000 / $4,000</span>
+<span class="text-secondary">75%</span>
+</div>
+<div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 75%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tokyo Trip -->
+<div class="glass-panel overflow-hidden group">
+<div class="h-32 relative">
+<img alt="Tokyo Skyline" class="w-full h-full object-cover" data-alt="A vibrant night view of Tokyo's skyline with glowing neon signs, towering skyscrapers, and moving light trails from traffic. The palette is dominated by electric indigo, cyan, and deep magenta, creating a futuristic cyberpunk aesthetic. The scene is shot from a high-angle perspective, capturing the high-energy and business-centric essence of the trip." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQkUWay6_Xg8FK89G0y-fBJ5DJgWVrSlfgn0WhfKdhq83W63sHC90Zd7BnIBUWvgvTSE3O9uHcHv90HTXebJJac6OHzMa2G7CIYavpWePnsqaPPDVQ1MWPnLWZ9W9wPlOV9frlUdGdGdawRtoWV7KFf8830zLz8A3_BnwvaOZEHMrgZmiP6a4bAjGh6X4ADdLjE5e57LCMFF1lj5Gwxxmt7pOqJJDJAFsv552wm_8jG_vOHOWp5YlgdLkSRQhLydTGirBDJZVpN30"/>
+<div class="absolute top-2 right-2 px-3 py-1 bg-primary text-on-primary text-[10px] font-bold rounded-full uppercase">Upcoming</div>
+</div>
+<div class="p-lg space-y-md">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-body-lg">Tokyo Tech Tour</h4>
+<span class="text-label-sm text-on-surface-variant">Oct 5-15</span>
+</div>
+<div class="flex gap-sm">
+<span class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] text-primary">Japan</span>
+<span class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] text-primary">Business</span>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between text-label-sm">
+<span class="text-on-surface-variant">Budget: $1,000 / $5,000</span>
+<span class="text-primary">20%</span>
+</div>
+<div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 20%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Budget Analytics Widget -->
+<section class="space-y-lg">
+<h3 class="text-headline-md font-bold">Analytics</h3>
+<div class="glass-panel p-lg h-full flex flex-col">
+<p class="text-label-sm text-on-surface-variant font-bold mb-lg uppercase tracking-widest">Budget Breakdown</p>
+<!-- Pseudo Doughnut Chart -->
+<div class="relative w-48 h-48 mx-auto my-md flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="16" stroke="rgba(255,255,255,0.05)" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#6C63FF" stroke-dasharray="40 100" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#00D9C0" stroke-dasharray="25 100" stroke-dashoffset="-40" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#ffb785" stroke-dasharray="20 100" stroke-dashoffset="-65" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#e4e1ee" stroke-dasharray="15 100" stroke-dashoffset="-85" stroke-width="3"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="text-headline-md font-bold">$24.5k</span>
+<span class="text-label-sm text-on-surface-variant">Total Spent</span>
+</div>
+</div>
+<div class="space-y-md mt-auto">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-[#6C63FF]"></span>
+<span class="text-body-md">Transport</span>
+</div>
+<span class="font-bold">40%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-secondary-container"></span>
+<span class="text-body-md">Lodging</span>
+</div>
+<span class="font-bold">25%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-tertiary"></span>
+<span class="text-body-md">Activities</span>
+</div>
+<span class="font-bold">20%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-on-surface"></span>
+<span class="text-body-md">Food</span>
+</div>
+<span class="font-bold">15%</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Swiss Alps Card (Asymmetric Layout Extra) -->
+<section class="glass-panel p-lg flex flex-col md:flex-row gap-lg items-center relative overflow-hidden">
+<div class="absolute top-0 right-0 p-lg opacity-10">
+<span class="material-symbols-outlined text-[120px]">ac_unit</span>
+</div>
+<div class="w-full md:w-1/3 h-48 rounded-xl overflow-hidden">
+<img alt="Swiss Alps" class="w-full h-full object-cover" data-alt="A serene landscape of the Swiss Alps, with jagged snow-capped peaks piercing a crystal-clear blue sky. In the foreground, a luxury wooden chalet is surrounded by pristine, powdery snow. The lighting is sharp and cold, emphasizing the textures of the ice and snow, while creating a peaceful, high-end travel mood that aligns with the premium ZUno aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSE6ZejaqJ5BK_0c2wVTQeSSKMVRnOC6VKnELyd75uvnKvX5BW_qeHbUVB11eNK0_O-UZFMXspagOQUNHmwT9yJTRu412X6Nh_GTTc3q-jbdNuqp8rERXs4vtmFK9OzF9eN3FGpeHjqXoqhqvn1dnUsjiTdq3oZGzKuTcfKG8gmz7I-aIY3PawYAlfFukb8Fp0ikwqecdktCAfr5rTFHgJvRRNNH6fTXhQR6gaokllkl4koqpp6ykGDASuiLaBl0esNfLAa62ORbU"/>
+</div>
+<div class="flex-1 space-y-md z-10">
+<div class="flex items-center gap-md">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface text-[10px] font-bold rounded-full uppercase">Completed</span>
+<h4 class="text-headline-md font-bold">Swiss Alps Escape</h4>
+</div>
+<p class="text-body-md text-on-surface-variant max-w-xl">Our most expensive trip to date, focusing on high-altitude skiing and luxury spa retreats. Budget was fully utilized with zero overages.</p>
+<div class="flex gap-xl">
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase">Final Budget</p>
+<p class="text-body-lg font-bold text-secondary">$6,000</p>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase">Duration</p>
+<p class="text-body-lg font-bold">10 Days</p>
+</div>
+</div>
+</div>
+<button class="glass-panel bg-white/10 px-lg py-md text-cyan-teal font-bold hover:bg-secondary hover:text-on-secondary transition-all">Revisit Itinerary</button>
+</section>
+</div>
+</main>
+<!-- Quick Actions Floating Section -->
+<div class="fixed bottom-margin right-margin flex flex-col gap-md z-50">
+<div class="flex flex-col items-end gap-sm group">
+<button class="p-4 rounded-full glass-panel primary-gradient text-white shadow-2xl flex items-center justify-center hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+<div class="flex flex-col gap-sm opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+<button class="px-lg py-md glass-panel bg-white/10 text-white font-bold text-label-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-sm">receipt_long</span> Add Expense
+                </button>
+<button class="px-lg py-md glass-panel bg-white/10 text-white font-bold text-label-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-sm">map</span> View Itinerary
+                </button>
+</div>
+</div>
+</div>
+</body></html>
