@@ -1,0 +1,23 @@
+{
+  "name": "traveloop-frontend",
+  "version": "1.0.0",
+  "description": "Traveloop - Premium Multi-City Travel Itinerary Platform",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "travel",
+    "itinerary",
+    "trip-planning"
+  ],
+  "author": "Traveloop Team",
+  "license": "MIT",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "tailwindcss": "^4.3.0"
+  }
+}
